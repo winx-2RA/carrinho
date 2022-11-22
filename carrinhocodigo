@@ -1,0 +1,77 @@
+#define MDV 2
+#define MD1 3
+#define MD2 4
+
+#define MEV 5
+#define ME1 6
+#define ME2 7
+
+void setup() {
+ pinMode(MDV, OUTPUT);
+ pinMode(MD1, OUTPUT);
+ pinMode(MD2, OUTPUT);
+ pinMode(MEV, OUTPUT);
+ pinMode(ME1, OUTPUT);
+ pinMode(ME2, OUTPUT);
+
+ Serial.begin(96000;
+
+ }
+
+void loop() {
+ if(Serial.available()>0){
+  char valorRecebido){
+    case 'F':
+    frente();
+    break;
+
+    case 'B':
+    tras();
+    break;
+
+    case 'R':
+    viraDireita();
+    break;
+
+    case 'L':
+    viraEsquerda();
+    break;
+   }
+ }
+}
+
+void frente(){
+ digitalWrite(MD1, HIGH);
+ digitalWrite(MD2, LOW);
+ digitalWrite(MDV,255);
+ digitalWrite(ME1, HIGH);
+ digitalWrite(ME2, LOW);
+ digitalWrite(MEV, 255);
+}
+
+void tras(){
+ digitalWrite(MD1, LOW);
+ digitalWrite(MD2, HIGH);
+ digitalWrite(MDV,255);
+ digitalWrite(ME1, LOW);
+ digitalWrite(ME2, HIGH);
+ digitalWrite(MEV, 255);
+}
+
+void viraDireita(){
+ digitalWrite(MD1, LOW);
+ digitalWrite(MD2, HIGH);
+ digitalWrite(MDV,255);
+ digitalWrite(ME1, HIGH);
+ digitalWrite(ME2, LOW);
+ digitalWrite(MEV, 255);
+}
+
+void viraEsquerda(){
+ digitalWrite(MD1, HIGH);
+ digitalWrite(MD2, LOW);
+ digitalWrite(MDV,255);
+ digitalWrite(ME1, LOW);
+ digitalWrite(ME2, HIGH );
+ digitalWrite(MEV, 255);
+}
