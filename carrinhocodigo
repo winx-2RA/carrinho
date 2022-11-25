@@ -1,77 +1,94 @@
-#define MDV 2
-#define MD1 3
-#define MD2 4
+#define va 5
+#define m1A 8
+#define m2A 9
 
-#define MEV 5
-#define ME1 6
-#define ME2 7
+#define vb 6
+#define m1B 8
+#define m2B 8 
+
+int velocidadeRecebida = 255;
 
 void setup() {
- pinMode(MDV, OUTPUT);
- pinMode(MD1, OUTPUT);
- pinMode(MD2, OUTPUT);
- pinMode(MEV, OUTPUT);
- pinMode(ME1, OUTPUT);
- pinMode(ME2, OUTPUT);
+   pinMode (va, OUTPUT);
+   pinMode (m1a, OUTPUT);
+   pinMode (m2a, OUTPUT);
+   pinMode (vb, OUTPUT);
+   pinMode (m1B, OUTPUT);
+   pinMode (m2B, OUTPUT);
 
- Serial.begin(96000;
-
- }
-
+   Serial.begin(9600);
+}
 void loop() {
  if(Serial.available()>0){
-  char valorRecebido){
-    case 'F':
-    frente();
-    break;
-
-    case 'B':
-    tras();
-    break;
-
-    case 'R':
-    viraDireita();
-    break;
-
-    case 'L':
-    viraEsquerda();
-    break;
-   }
+  char valorRecebido = Serial.read():
+  Serial.println(valorRecebido);
+  Serial.println(valorRecebido;
+   if(valorRecebido == '0'// valorRecebido == '1' // valorRecebido == '2' //valorRecebido  == '3' //valorRecebido == '4'){
+   velocidadeRecebida = map(int(valorRecebido), 48, 52, 0, 255);
+   Serial.println(int(valorRecebido));
  }
+
+switch(valorRecebido){
+  case'F':
+  frente();
+  break;
+
+  case'B':
+  tras();
+  break;
+
+  case'L':
+  direita();
+  break;
+
+  case'R':
+  esquerda();
+  break;
+
+  case'S':
+  parar();
+  break;
+    }
+  }
+}
+void parar(){
+  digitalWrite(va, 0);
+  digitalWrite(vb, 0);
 }
 
 void frente(){
- digitalWrite(MD1, HIGH);
- digitalWrite(MD2, LOW);
- digitalWrite(MDV,255);
- digitalWrite(ME1, HIGH);
- digitalWrite(ME2, LOW);
- digitalWrite(MEV, 255);
+  digitalWrite(m1a, HIGH);
+  digitalWrite(m2A, LOW);
+  digitalWrite(m1B, LOW);
+  digitalWrite(m2B, HIGH);
+  velocidade (velocidadeRecebida);
 }
 
 void tras(){
- digitalWrite(MD1, LOW);
- digitalWrite(MD2, HIGH);
- digitalWrite(MDV,255);
- digitalWrite(ME1, LOW);
- digitalWrite(ME2, HIGH);
- digitalWrite(MEV, 255);
+  digitalWrite(m1a, LOW);
+  digitalWrite(m2A, HIGH);
+  digitalWrite(m1B, HIGH);
+  digitalWrite(m2B, LOW);
+  velocidade (velocidadeRecebida);
 }
 
-void viraDireita(){
- digitalWrite(MD1, LOW);
- digitalWrite(MD2, HIGH);
- digitalWrite(MDV,255);
- digitalWrite(ME1, HIGH);
- digitalWrite(ME2, LOW);
- digitalWrite(MEV, 255);
+void direita(){
+  digitalWrite(m1a, LOW);
+  digitalWrite(m2A, HIGH);
+  digitalWrite(m1B, LOW);
+  digitalWrite(m2B, HIGH);
+  velocidade (velocidadeRecebida);
 }
 
-void viraEsquerda(){
- digitalWrite(MD1, HIGH);
- digitalWrite(MD2, LOW);
- digitalWrite(MDV,255);
- digitalWrite(ME1, LOW);
- digitalWrite(ME2, HIGH );
- digitalWrite(MEV, 255);
+void esquerda(){
+  digitalWrite(m1a, HIGH);
+  digitalWrite(m2A, LOW);
+  digitalWrite(m1B, HIGH);
+  digitalWrite(m2B, LOW);
+  velocidade (velocidadeRecebida);
+}
+
+void velocidade (int velocidade){
+   analogWrite(va, velocidadeRecebida);
+   analogWrite(vb, velocidadeRecebida);
 }
