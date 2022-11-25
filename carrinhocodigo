@@ -3,8 +3,8 @@
 #define m2A 9
 
 #define vb 6
-#define m1B 8
-#define m2B 8 
+#define m1B 10
+#define m2B 11 
 
 int velocidadeRecebida = 255;
 
